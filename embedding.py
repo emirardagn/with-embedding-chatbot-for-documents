@@ -4,11 +4,14 @@ import ollama
 import chromadb
 
 
-with open('surya/belge2/results.json', 'r', encoding="utf-8-sig") as f:
+belge = input("belge: ")
+belge = "belge"+str(belge)
+
+with open(f'surya/{belge}/results.json', 'r', encoding="utf-8-sig") as f:
     data = json.load(f)
 
 
-data = data["belge2"][0]["text_lines"]
+data = data[belge][0]["text_lines"]
 
 
 df = pd.DataFrame(columns=["text","bbox","c-x","c-y"])
